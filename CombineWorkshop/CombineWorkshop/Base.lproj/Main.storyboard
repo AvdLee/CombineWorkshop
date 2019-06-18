@@ -169,16 +169,25 @@
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="usernameChanged:" destination="Ay4-wX-i2O" eventType="editingChanged" id="4u4-PF-Fkm"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ED-wD-bwk">
                                         <rect key="frame" x="0.0" y="50" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="passwordChanged:" destination="Ay4-wX-i2O" eventType="editingChanged" id="GT3-hd-SFL"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vew-01-4cW">
                                         <rect key="frame" x="0.0" y="100" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="passwordAgainChanged:" destination="Ay4-wX-i2O" eventType="editingChanged" id="g9I-Ft-PoE"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                             </stackView>
