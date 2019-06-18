@@ -7,9 +7,23 @@
 //
 
 import Foundation
+import UIKit
 
-enum WorkshopStep: Int {
+enum WorkshopStep: Int, CaseIterable {
     case step1, step2, step3, step4, step5
+
+    var viewController: UIViewController.Type? {
+        switch self {
+        case .step1:
+            return StepOneViewController.self
+        case .step2:
+            return StepTwoViewController.self
+        case .step3:
+            return StepThreeViewController.self
+        default:
+            return nil
+        }
+    }
 }
 
 protocol WorkshopStepContaining {
@@ -29,7 +43,7 @@ extension UserDefaults {
             return WorkshopStep(rawValue: integer(forKey: "current_workshop_step"))!
         }
         set {
-            set(newValue, forKey: "current_workshop_step")
+            set(newValue.rawValue, forKey: "current_workshop_step")
         }
     }
 }

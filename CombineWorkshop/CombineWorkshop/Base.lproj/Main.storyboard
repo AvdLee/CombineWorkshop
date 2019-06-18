@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14810.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L4h-wx-2MP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14810.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.15"/>
@@ -10,13 +10,13 @@
         <!--Step One-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Step One" id="BYZ-38-t0r" customClass="StepOneViewController" customModule="CombineWorkshop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StepOneViewController" title="Step One" id="BYZ-38-t0r" customClass="StepOneViewController" customModule="CombineWorkshop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jsa-Nr-Qto">
-                                <rect key="frame" x="20" y="164" width="374" height="31"/>
+                                <rect key="frame" x="20" y="112" width="374" height="31"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable the button!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BvJ-mE-bPd">
                                         <rect key="frame" x="0.0" y="0.0" width="325" height="31"/>
@@ -33,7 +33,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxm-hj-kju">
-                                <rect key="frame" x="20" y="227" width="374" height="30"/>
+                                <rect key="frame" x="20" y="175" width="374" height="30"/>
                                 <state key="normal" title="Go to step two"/>
                                 <connections>
                                     <segue destination="lEU-at-Qj1" kind="show" id="o42-IW-PBF"/>
@@ -52,6 +52,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Step One" id="u3z-oz-7ne"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="buttonSwitch" destination="YJI-BO-o7Q" id="qTE-qq-tQG"/>
                         <outlet property="nextButton" destination="zxm-hj-kju" id="fez-rP-Vge"/>
@@ -61,34 +62,16 @@
             </objects>
             <point key="canvasLocation" x="1010.144927536232" y="135.9375"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="AJp-Q2-sik">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="L4h-wx-2MP" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="QIg-ZM-74j">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="He4-gd-vBR"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Aim-G4-TqA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="100.00000000000001" y="135.9375"/>
-        </scene>
         <!--Step Two-->
         <scene sceneID="1BI-5P-yIc">
             <objects>
-                <viewController title="Step Two" id="lEU-at-Qj1" customClass="StepTwoViewController" customModule="CombineWorkshop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StepTwoViewController" title="Step Two" id="lEU-at-Qj1" customClass="StepTwoViewController" customModule="CombineWorkshop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vMz-XM-Y4g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Zjc-JM-Jfd">
-                                <rect key="frame" x="20" y="164" width="374" height="125"/>
+                                <rect key="frame" x="20" y="112" width="374" height="125"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mwd-kS-Ygj">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="31"/>
@@ -144,7 +127,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATg-o1-Dll">
-                                <rect key="frame" x="20" y="321" width="374" height="30"/>
+                                <rect key="frame" x="20" y="269" width="374" height="30"/>
                                 <state key="normal" title="Go to step three"/>
                                 <connections>
                                     <segue destination="Ay4-wX-i2O" kind="show" id="lyR-dR-rYE"/>
@@ -174,13 +157,13 @@
         <!--Step Three-->
         <scene sceneID="TZC-DD-BY1">
             <objects>
-                <viewController title="Step Three" id="Ay4-wX-i2O" customClass="StepThreeViewController" customModule="CombineWorkshop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StepThreeViewController" title="Step Three" id="Ay4-wX-i2O" customClass="StepThreeViewController" customModule="CombineWorkshop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6fe-ff-lc7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ob7-Vi-ORn">
-                                <rect key="frame" x="20" y="164" width="374" height="134"/>
+                                <rect key="frame" x="20" y="112" width="374" height="134"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gTv-So-a8K">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
@@ -200,7 +183,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64e-te-QhO">
-                                <rect key="frame" x="20" y="330" width="374" height="30"/>
+                                <rect key="frame" x="20" y="278" width="374" height="30"/>
                                 <state key="normal" title="Go to step four"/>
                             </button>
                         </subviews>
