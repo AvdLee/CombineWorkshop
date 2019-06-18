@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14810.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L4h-wx-2MP">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.15"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Step One-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController title="Step One" id="BYZ-38-t0r" customClass="StepOneViewController" customModule="CombineWorkshop" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jsa-Nr-Qto">
+                                <rect key="frame" x="20" y="164" width="374" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable the button!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BvJ-mE-bPd">
+                                        <rect key="frame" x="0.0" y="0.0" width="325" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YJI-BO-o7Q">
+                                        <rect key="frame" x="325" y="0.0" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="didSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="ChH-tc-zEn"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxm-hj-kju">
+                                <rect key="frame" x="20" y="227" width="374" height="30"/>
+                                <state key="normal" title="Go to step two"/>
+                                <connections>
+                                    <segue destination="lEU-at-Qj1" kind="show" id="o42-IW-PBF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="zxm-hj-kju" firstAttribute="leading" secondItem="jsa-Nr-Qto" secondAttribute="leading" id="8GZ-DR-iUZ"/>
+                            <constraint firstItem="zxm-hj-kju" firstAttribute="trailing" secondItem="jsa-Nr-Qto" secondAttribute="trailing" id="99A-s7-YuE"/>
+                            <constraint firstItem="zxm-hj-kju" firstAttribute="top" secondItem="jsa-Nr-Qto" secondAttribute="bottom" constant="32" id="JBp-PF-cqj"/>
+                            <constraint firstItem="jsa-Nr-Qto" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="RDX-b9-sel"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jsa-Nr-Qto" secondAttribute="trailing" constant="20" id="YVz-FU-tBe"/>
+                            <constraint firstItem="jsa-Nr-Qto" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="jJq-mB-clB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Step One" id="u3z-oz-7ne"/>
+                    <connections>
+                        <outlet property="buttonSwitch" destination="YJI-BO-o7Q" id="qTE-qq-tQG"/>
+                        <outlet property="nextButton" destination="zxm-hj-kju" id="fez-rP-Vge"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1010.144927536232" y="135.9375"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="AJp-Q2-sik">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="L4h-wx-2MP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="QIg-ZM-74j">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="He4-gd-vBR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aim-G4-TqA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="100.00000000000001" y="135.9375"/>
+        </scene>
+        <!--Step Two-->
+        <scene sceneID="1BI-5P-yIc">
+            <objects>
+                <viewController title="Step Two" id="lEU-at-Qj1" customClass="StepTwoViewController" customModule="CombineWorkshop" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vMz-XM-Y4g">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Zjc-JM-Jfd">
+                                <rect key="frame" x="20" y="164" width="374" height="125"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mwd-kS-Ygj">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Switch me!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9T2-S5-JLB">
+                                                <rect key="frame" x="0.0" y="0.0" width="325" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="E2R-9Y-XKi">
+                                                <rect key="frame" x="325" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="switchedOne:" destination="lEU-at-Qj1" eventType="valueChanged" id="lre-Nw-U1C"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ga3-Wr-m6n">
+                                        <rect key="frame" x="0.0" y="47" width="374" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Me too!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAA-Ul-8dE">
+                                                <rect key="frame" x="0.0" y="0.0" width="325" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bVf-S2-51C">
+                                                <rect key="frame" x="325" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="switchedTwo:" destination="lEU-at-Qj1" eventType="valueChanged" id="Elr-jN-qis"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OdG-Rw-CxC">
+                                        <rect key="frame" x="0.0" y="94" width="374" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't forget me!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMR-Gq-GCu">
+                                                <rect key="frame" x="0.0" y="0.0" width="325" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ufp-tz-lS7">
+                                                <rect key="frame" x="325" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="switchedThree:" destination="lEU-at-Qj1" eventType="valueChanged" id="urX-k8-DOj"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATg-o1-Dll">
+                                <rect key="frame" x="20" y="321" width="374" height="30"/>
+                                <state key="normal" title="Go to step three"/>
+                                <connections>
+                                    <segue destination="Ay4-wX-i2O" kind="show" id="lyR-dR-rYE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ATg-o1-Dll" firstAttribute="trailing" secondItem="Zjc-JM-Jfd" secondAttribute="trailing" id="7ZZ-Q8-PjD"/>
+                            <constraint firstItem="Zjc-JM-Jfd" firstAttribute="top" secondItem="gsh-3X-44h" secondAttribute="top" constant="24" id="Cmf-Q3-xv3"/>
+                            <constraint firstItem="ATg-o1-Dll" firstAttribute="top" secondItem="Zjc-JM-Jfd" secondAttribute="bottom" constant="32" id="NOk-CM-hy4"/>
+                            <constraint firstItem="ATg-o1-Dll" firstAttribute="leading" secondItem="Zjc-JM-Jfd" secondAttribute="leading" id="dL4-M0-aAY"/>
+                            <constraint firstItem="gsh-3X-44h" firstAttribute="trailing" secondItem="Zjc-JM-Jfd" secondAttribute="trailing" constant="20" id="ldY-bw-kuD"/>
+                            <constraint firstItem="Zjc-JM-Jfd" firstAttribute="leading" secondItem="gsh-3X-44h" secondAttribute="leading" constant="20" id="z3h-dp-26r"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gsh-3X-44h"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Step Two" id="eLw-UY-dlB"/>
+                    <connections>
+                        <outlet property="nextButton" destination="ATg-o1-Dll" id="cQM-gQ-uc0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HPu-O2-J4h" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1739" y="136"/>
+        </scene>
+        <!--Step Three-->
+        <scene sceneID="TZC-DD-BY1">
+            <objects>
+                <viewController title="Step Three" id="Ay4-wX-i2O" customClass="StepThreeViewController" customModule="CombineWorkshop" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6fe-ff-lc7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ob7-Vi-ORn">
+                                <rect key="frame" x="20" y="164" width="374" height="134"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gTv-So-a8K">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ED-wD-bwk">
+                                        <rect key="frame" x="0.0" y="50" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vew-01-4cW">
+                                        <rect key="frame" x="0.0" y="100" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64e-te-QhO">
+                                <rect key="frame" x="20" y="330" width="374" height="30"/>
+                                <state key="normal" title="Go to step four"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ob7-Vi-ORn" firstAttribute="top" secondItem="yrS-49-FMj" secondAttribute="top" constant="24" id="2v1-GS-m3o"/>
+                            <constraint firstItem="ob7-Vi-ORn" firstAttribute="leading" secondItem="yrS-49-FMj" secondAttribute="leading" constant="20" id="IBS-Qj-902"/>
+                            <constraint firstItem="64e-te-QhO" firstAttribute="leading" secondItem="ob7-Vi-ORn" secondAttribute="leading" id="RvZ-7E-5Dr"/>
+                            <constraint firstItem="yrS-49-FMj" firstAttribute="trailing" secondItem="ob7-Vi-ORn" secondAttribute="trailing" constant="20" id="elu-xO-52o"/>
+                            <constraint firstItem="64e-te-QhO" firstAttribute="top" secondItem="ob7-Vi-ORn" secondAttribute="bottom" constant="32" id="iRy-eX-dF5"/>
+                            <constraint firstItem="64e-te-QhO" firstAttribute="trailing" secondItem="ob7-Vi-ORn" secondAttribute="trailing" id="qw0-0j-qCu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yrS-49-FMj"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Step Three" id="Hea-RT-1IN"/>
+                    <connections>
+                        <outlet property="nextButton" destination="64e-te-QhO" id="gYs-KJ-fIh"/>
+                        <outlet property="passwordConfirmTextField" destination="vew-01-4cW" id="ySU-q6-WCE"/>
+                        <outlet property="passwordTextField" destination="5ED-wD-bwk" id="Ynh-TW-rcT"/>
+                        <outlet property="usernameTextField" destination="gTv-So-a8K" id="PaB-0y-mnU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y9a-vk-Eju" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2464" y="136"/>
+        </scene>
+    </scenes>
+</document>
