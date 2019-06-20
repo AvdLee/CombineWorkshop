@@ -13,7 +13,7 @@ struct Repo: Decodable {
     var id: Int
     let owner: Owner
     let name: String
-    let description: String
+    let description: String?
 
     struct Owner: Decodable {
         let avatar: URL

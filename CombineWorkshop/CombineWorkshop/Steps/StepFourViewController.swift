@@ -9,9 +9,10 @@
 import UIKit
 import Combine
 
-final class StepFourViewController: UIViewController {
+final class StepFourViewController: UITableViewController {
 
     private var searchSubscriber: AnyCancellable?
+    private var repositoriesSubscriber: AnyCancellable?
 
     private let searchURL = URL(string: "https://www.mygreatAPI.com/search")!
     private let decoder = JSONDecoder()
@@ -30,9 +31,12 @@ final class StepFourViewController: UIViewController {
         search.searchBar.placeholder = "Search for repository"
         navigationItem.searchController = search
 
-        $repos.sink { (repos) in
-            print(repos)
-        }
+        _ = $repos
+            .receive(on: DispatchQueue.main)
+            .sink { (repos) in
+                self.tableView.reloadData()
+            }
+
     }
 
     private func setupSearch() {
@@ -54,7 +58,10 @@ final class StepFourViewController: UIViewController {
                 return Publishers.Just(data)
                     .decode(type: SearchResponse.self, decoder: self.decoder)
                     .map { $0.items }
-                    .assertNoFailure()
+                    .catch { error -> Publishers.Just<[Repo]> in
+                        print("Decoding failed with error: \(error)")
+                        return Publishers.Just([])
+                    }
             }.assign(to: \.repos, on: self)
     }
 }
@@ -62,5 +69,17 @@ final class StepFourViewController: UIViewController {
 extension StepFourViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         searchQuery = searchController.searchBar.text ?? ""
+    }
+}
+
+extension StepFourViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return repos.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RepositoryCell", for: indexPath)
+        cell.textLabel?.text = repos[indexPath.row].name
+        return cell
     }
 }

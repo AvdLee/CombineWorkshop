@@ -8,6 +8,12 @@
 
 import UIKit
 
+struct SwiftIslandColor {
+    static let red = UIColor(named: "red")
+    static let yellow = UIColor(named: "yellow")
+    static let orange = UIColor(named: "orange")
+}
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -26,7 +32,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navigationController
+        window?.tintColor = SwiftIslandColor.red
         window?.makeKeyAndVisible()
+
+        navigationController.navigationBar.barTintColor = SwiftIslandColor.orange
+        navigationController.navigationBar.tintColor = .white
+        navigationController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        UISwitch.appearance().onTintColor = SwiftIslandColor.yellow
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

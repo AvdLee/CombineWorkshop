@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.15"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,9 +33,16 @@
                                     </switch>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxm-hj-kju">
-                                <rect key="frame" x="20" y="175" width="374" height="30"/>
-                                <state key="normal" title="Go to step two"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxm-hj-kju" customClass="RoundedButton" customModule="CombineWorkshop" customModuleProvider="target">
+                                <rect key="frame" x="20" y="175" width="374" height="44"/>
+                                <color key="backgroundColor" name="red"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="YeU-Ut-6yy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="Go to step two">
+                                    <color key="titleColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="lEU-at-Qj1" kind="show" id="o42-IW-PBF"/>
                                 </connections>
@@ -126,9 +134,16 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATg-o1-Dll">
-                                <rect key="frame" x="20" y="269" width="374" height="30"/>
-                                <state key="normal" title="Go to step three"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATg-o1-Dll" customClass="RoundedButton" customModule="CombineWorkshop" customModuleProvider="target">
+                                <rect key="frame" x="20" y="269" width="374" height="44"/>
+                                <color key="backgroundColor" name="red"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="jPC-oG-3Z2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="Go to step three">
+                                    <color key="titleColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="Ay4-wX-i2O" kind="show" id="lyR-dR-rYE"/>
                                 </connections>
@@ -191,11 +206,18 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64e-te-QhO">
-                                <rect key="frame" x="20" y="278" width="374" height="30"/>
-                                <state key="normal" title="Go to step four"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64e-te-QhO" customClass="RoundedButton" customModule="CombineWorkshop" customModuleProvider="target">
+                                <rect key="frame" x="20" y="278" width="374" height="44"/>
+                                <color key="backgroundColor" name="red"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="jeI-H1-vUQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="Go to step four">
+                                    <color key="titleColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
-                                    <segue destination="9gI-ei-nqK" kind="show" id="2Tl-PM-kkr"/>
+                                    <segue destination="m5k-fX-5bZ" kind="show" id="na1-YT-SXC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -222,21 +244,38 @@
             </objects>
             <point key="canvasLocation" x="2464" y="136"/>
         </scene>
-        <!--Step Three-->
-        <scene sceneID="EcA-uT-Ldk">
+        <!--Search for Swift repos-->
+        <scene sceneID="NvY-6O-0GI">
             <objects>
-                <viewController storyboardIdentifier="StepFourViewController" title="Step Three" id="9gI-ei-nqK" customClass="StepFourViewController" customModule="CombineWorkshop" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="CmC-ZC-Pwq">
+                <tableViewController storyboardIdentifier="StepFourViewController" title="Search for Swift repos" id="m5k-fX-5bZ" customClass="StepFourViewController" customModule="CombineWorkshop" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="t33-Ll-Ib2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="q1T-lK-Vcu"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="4: Search for Swift repos" id="h5z-96-d6K"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VtF-jJ-nMa" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RepositoryCell" id="K2R-Hn-Xpp">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K2R-Hn-Xpp" id="ICV-tP-Ef9">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="m5k-fX-5bZ" id="S1B-ls-sku"/>
+                            <outlet property="delegate" destination="m5k-fX-5bZ" id="66R-1f-c9S"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zHn-Fi-Iqd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3184" y="136"/>
+            <point key="canvasLocation" x="3196" y="136"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="red">
+            <color red="0.87000000476837158" green="0.0" blue="0.33000001311302185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
