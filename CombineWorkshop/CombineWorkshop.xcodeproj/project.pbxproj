@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50522A2D22BBE830000CE746 /* StepFourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50522A2C22BBE830000CE746 /* StepFourViewController.swift */; };
+		50522A4222BBEEA4000CE746 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50522A4122BBEEA4000CE746 /* Models.swift */; };
 		5067196B22B955E10006761D /* StepOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5067196A22B955E10006761D /* StepOneViewController.swift */; };
 		5067196D22B955F50006761D /* StepTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5067196C22B955F50006761D /* StepTwoViewController.swift */; };
 		5067196F22B959F00006761D /* StepThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5067196E22B959F00006761D /* StepThreeViewController.swift */; };
@@ -29,7 +31,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		50522A3D22BBEAE8000CE746 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		50522A2C22BBE830000CE746 /* StepFourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepFourViewController.swift; sourceTree = "<group>"; };
+		50522A4122BBEEA4000CE746 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		5067196A22B955E10006761D /* StepOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepOneViewController.swift; sourceTree = "<group>"; };
 		5067196C22B955F50006761D /* StepTwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepTwoViewController.swift; sourceTree = "<group>"; };
 		5067196E22B959F00006761D /* StepThreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepThreeViewController.swift; sourceTree = "<group>"; };
@@ -64,12 +81,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		50522A3A22BBEAE8000CE746 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		50522A3E22BBEE78000CE746 /* GithubAPI */ = {
+			isa = PBXGroup;
+			children = (
+				50522A4122BBEEA4000CE746 /* Models.swift */,
+			);
+			path = GithubAPI;
+			sourceTree = "<group>";
+		};
 		5067196922B955E10006761D /* Steps */ = {
 			isa = PBXGroup;
 			children = (
 				5067196A22B955E10006761D /* StepOneViewController.swift */,
 				5067196C22B955F50006761D /* StepTwoViewController.swift */,
 				5067196E22B959F00006761D /* StepThreeViewController.swift */,
+				50522A2C22BBE830000CE746 /* StepFourViewController.swift */,
 				5067197022B95A970006761D /* WorkshopStep.swift */,
 			);
 			path = Steps;
@@ -81,6 +114,7 @@
 				50C8475722B682E50008D97D /* CombineWorkshop */,
 				50C8476E22B682E80008D97D /* CombineWorkshopTests */,
 				50C8475622B682E50008D97D /* Products */,
+				50522A3A22BBEAE8000CE746 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +130,7 @@
 		50C8475722B682E50008D97D /* CombineWorkshop */ = {
 			isa = PBXGroup;
 			children = (
+				50522A3E22BBEE78000CE746 /* GithubAPI */,
 				5067196922B955E10006761D /* Steps */,
 				50C8475822B682E50008D97D /* AppDelegate.swift */,
 				50C8475A22B682E50008D97D /* SceneDelegate.swift */,
@@ -126,6 +161,7 @@
 				50C8475122B682E50008D97D /* Sources */,
 				50C8475222B682E50008D97D /* Frameworks */,
 				50C8475322B682E50008D97D /* Resources */,
+				50522A3D22BBEAE8000CE746 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -222,6 +258,8 @@
 				50C8475B22B682E50008D97D /* SceneDelegate.swift in Sources */,
 				5067196B22B955E10006761D /* StepOneViewController.swift in Sources */,
 				5067197122B95A970006761D /* WorkshopStep.swift in Sources */,
+				50522A4222BBEEA4000CE746 /* Models.swift in Sources */,
+				50522A2D22BBE830000CE746 /* StepFourViewController.swift in Sources */,
 				5067196D22B955F50006761D /* StepTwoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -51,7 +51,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Step One" id="u3z-oz-7ne"/>
+                    <navigationItem key="navigationItem" title="1: Switchy" id="u3z-oz-7ne"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="buttonSwitch" destination="YJI-BO-o7Q" id="qTE-qq-tQG"/>
@@ -145,7 +145,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gsh-3X-44h"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Step Two" id="eLw-UY-dlB"/>
+                    <navigationItem key="navigationItem" title="2: Switching" id="eLw-UY-dlB"/>
                     <connections>
                         <outlet property="nextButton" destination="ATg-o1-Dll" id="cQM-gQ-uc0"/>
                     </connections>
@@ -194,6 +194,9 @@
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64e-te-QhO">
                                 <rect key="frame" x="20" y="278" width="374" height="30"/>
                                 <state key="normal" title="Go to step four"/>
+                                <connections>
+                                    <segue destination="9gI-ei-nqK" kind="show" id="2Tl-PM-kkr"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -207,7 +210,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yrS-49-FMj"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Step Three" id="Hea-RT-1IN"/>
+                    <navigationItem key="navigationItem" title="3: Sign up" id="Hea-RT-1IN"/>
                     <connections>
                         <outlet property="nextButton" destination="64e-te-QhO" id="gYs-KJ-fIh"/>
                         <outlet property="passwordConfirmTextField" destination="vew-01-4cW" id="ySU-q6-WCE"/>
@@ -218,6 +221,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y9a-vk-Eju" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2464" y="136"/>
+        </scene>
+        <!--Step Three-->
+        <scene sceneID="EcA-uT-Ldk">
+            <objects>
+                <viewController storyboardIdentifier="StepFourViewController" title="Step Three" id="9gI-ei-nqK" customClass="StepFourViewController" customModule="CombineWorkshop" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CmC-ZC-Pwq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="q1T-lK-Vcu"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="4: Search for Swift repos" id="h5z-96-d6K"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VtF-jJ-nMa" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3184" y="136"/>
         </scene>
     </scenes>
 </document>

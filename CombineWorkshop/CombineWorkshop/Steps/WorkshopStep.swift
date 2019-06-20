@@ -20,6 +20,8 @@ enum WorkshopStep: Int, CaseIterable {
             return StepTwoViewController.self
         case .step3:
             return StepThreeViewController.self
+        case .step4:
+            return StepFourViewController.self
         default:
             return nil
         }

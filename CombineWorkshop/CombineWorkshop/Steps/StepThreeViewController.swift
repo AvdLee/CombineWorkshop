@@ -24,7 +24,7 @@ final class StepThreeViewController: UIViewController {
 
     var validatedPassword: AnyPublisher<String?, Never> {
         return Publishers.CombineLatest($password, $passwordAgain) { password, passwordAgain -> String? in
-            guard password == passwordAgain, password.count > 8 else { return nil }
+            guard password == passwordAgain, password.count >= 8 else { return nil }
             return password
         }
         .map { $0 == "password1" ? nil : $0 }
@@ -54,7 +54,8 @@ final class StepThreeViewController: UIViewController {
     }
 
     func usernameAvailable(_ username: String, completion: (_ available: Bool) -> Void) {
-        completion(true)
+        let usernameAvailable = !["Antoine", "avdlee", "avanderlee"].contains(username)
+        completion(usernameAvailable)
     }
 
     override func viewDidLoad() {
