@@ -25,11 +25,15 @@ final class StepFourViewController: UITableViewController {
 
         setupSearch()
         
-        let search = UISearchController(searchResultsController: nil)
-        search.searchResultsUpdater = self
-        search.obscuresBackgroundDuringPresentation = false
-        search.searchBar.placeholder = "Search for repository"
-        navigationItem.searchController = search
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+
+        let searchTextField: UITextField? = searchController.searchBar.value(forKey: "searchField") as? UITextField
+        searchTextField?.attributedPlaceholder = NSAttributedString(string: "Search for repository", attributes: [.foregroundColor: UIColor.white])
+        searchTextField?.textColor = .white
+
+        navigationItem.searchController = searchController
 
         _ = $repos
             .receive(on: DispatchQueue.main)

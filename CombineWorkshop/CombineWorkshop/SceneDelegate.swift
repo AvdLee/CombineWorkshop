@@ -35,9 +35,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.tintColor = SwiftIslandColor.red
         window?.makeKeyAndVisible()
 
-        navigationController.navigationBar.barTintColor = SwiftIslandColor.orange
-        navigationController.navigationBar.tintColor = .white
-        navigationController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationController.navigationBar.barTintColor = SwiftIslandColor.yellow
+        navigationController.navigationBar.tintColor = .black
+        navigationController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
         UISwitch.appearance().onTintColor = SwiftIslandColor.yellow
     }
 
