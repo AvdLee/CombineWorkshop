@@ -9,6 +9,11 @@
 import UIKit
 import Combine
 
+/*
+ STEP 1:
+ Link the nextButton.isEnabled to the buttonSwitch.isOn.
+ */
+
 final class StepOneViewController: UIViewController {
 
     @Published private var buttonSwitchValue: Bool = false

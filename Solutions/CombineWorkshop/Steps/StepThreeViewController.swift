@@ -9,7 +9,21 @@
 import UIKit
 import Combine
 
+/*
+ STEP 3:
+ A classic sign up form!
+
+ Validation rules are as followed:
+ - Username should not exist yet
+ - Password should be 8 characters or more
+ - Password inputs should match
+ - Password should not exist in the easy passwords list
+ */
+
 final class StepThreeViewController: UIViewController {
+
+    private let registeredUsernames = ["Erica", "Paul", "Marina", "Benedikt", "Kateryna", "Antoine", "Sally", "Bas"]
+    private let weakPasswords = ["password", "00000000", "swiftisland"]
 
     @IBOutlet private weak var nextButton: UIButton!
     private var validationSubscriber: AnyCancellable?
@@ -26,17 +40,17 @@ final class StepThreeViewController: UIViewController {
         return Publishers.CombineLatest($password, $passwordAgain) { password, passwordAgain -> String? in
             guard password == passwordAgain, password.count >= 8 else { return nil }
             return password
-        }
-        .map { $0 == "password1" ? nil : $0 }
-        .eraseToAnyPublisher()
+            }
+            .map { self.weakPasswords.contains($0 ?? "") ? nil : $0 }
+            .eraseToAnyPublisher()
     }
 
     var validatedCredentials: AnyPublisher<(String, String)?, Never> {
         return Publishers.CombineLatest(validatedUsername, validatedPassword) { username, password -> (String, String)? in
             guard let uname = username, let pwd = password else { return nil }
             return (uname, pwd)
-        }
-        .eraseToAnyPublisher()
+            }
+            .eraseToAnyPublisher()
     }
 
     var validatedUsername: AnyPublisher<String?, Never> {
@@ -53,11 +67,6 @@ final class StepThreeViewController: UIViewController {
             .eraseToAnyPublisher()
     }
 
-    func usernameAvailable(_ username: String, completion: (_ available: Bool) -> Void) {
-        let usernameAvailable = !["Antoine", "avdlee", "avanderlee"].contains(username)
-        completion(usernameAvailable)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -65,6 +74,11 @@ final class StepThreeViewController: UIViewController {
             .map { $0 != nil }
             .receive(on: RunLoop.main)
             .assign(to: \.isEnabled, on: nextButton)
+    }
+
+    private func usernameAvailable(_ username: String, completion: (_ available: Bool) -> Void) {
+        let usernameAvailable = !registeredUsernames.contains(username)
+        completion(usernameAvailable)
     }
 
     @IBAction func usernameChanged(_ sender: UITextField) {

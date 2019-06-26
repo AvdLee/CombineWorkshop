@@ -14,7 +14,7 @@ struct SwiftIslandColor {
     static let orange = UIColor(named: "orange")
 }
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
@@ -26,8 +26,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let navigationController = UINavigationController(rootViewController: StepOneViewController.initFromStoryboard())
 
-        (1...UserDefaults.standard.currentStep.rawValue).compactMap { WorkshopStep(rawValue: $0) }.forEach { step in
-            navigationController.pushViewController(step.viewController!.initFromStoryboard(), animated: false)
+        if UserDefaults.standard.currentStep.rawValue > 0 {
+            (1...UserDefaults.standard.currentStep.rawValue).compactMap { WorkshopStep(rawValue: $0) }.forEach { step in
+                navigationController.pushViewController(step.viewController!.initFromStoryboard(), animated: false)
+            }
         }
     
         window = UIWindow(frame: UIScreen.main.bounds)
