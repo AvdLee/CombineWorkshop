@@ -14,10 +14,10 @@ import Combine
  A classic sign up form!
 
  Validation rules are as followed:
- - Username should not exist yet
+ - Username should not exist yet in the `registeredUsernames` array
  - Password should be 8 characters or more
  - Password inputs should match
- - Password should not exist in the easy passwords list
+ - Password should not exist in the `weakPasswords` array
  */
 
 final class StepThreeViewController: UIViewController {
