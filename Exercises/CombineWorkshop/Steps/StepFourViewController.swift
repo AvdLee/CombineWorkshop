@@ -48,7 +48,13 @@ final class StepFourViewController: UITableViewController {
     }
 
     private func setupSearchSubscriber() {
-        // Step 2: Set up a subscriber to the changing search query
+        /* Step 2: Set up a subscriber to the changing search query
+            - Only start searching when there's more than 2 characters of input
+            - Debounce for at least 0.3 seconds to not trigger unneeded requests
+            - Remove any duplicate inputs which might happen because of the debounce
+            - Just show an empty list when an error occurs
+            - Decode to `SearchResponse` to get the array of `Repo` instances
+         */
 //        searchSubscriber = $searchQuery
     }
 }
