@@ -38,14 +38,20 @@ final class StepThreeViewController: UIViewController {
 
     var validatedPassword: AnyPublisher<String?, Never> {
         fatalError("This needs to be implemented")
-    }
-
-    var validatedCredentials: AnyPublisher<(String, String)?, Never> {
-        fatalError("This needs to be implemented")
+        // Password and password again should match
+        // Password should be 8 characters or more
+        // Password should not exists in the weakPasswords array
+        // Use `.eraseToAnyPublisher()` in the end
     }
 
     var validatedUsername: AnyPublisher<String?, Never> {
         fatalError("This needs to be implemented")
+        // Username should not exist yet in the `registeredUsernames` array
+    }
+
+    var validatedCredentials: AnyPublisher<(String, String)?, Never> {
+        fatalError("This needs to be implemented")
+        // Bring the validation of password and username together
     }
 
     override func viewDidLoad() {
