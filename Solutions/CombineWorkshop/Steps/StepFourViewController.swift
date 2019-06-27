@@ -60,19 +60,15 @@ final class StepFourViewController: UITableViewController {
             .map { (query) -> URL in
                 return self.githubAPISearchURL(for: query)
             }
-            .flatMap { url -> AnyPublisher<Data, Never> in
+            .flatMap { url in
                 return URLSession.shared.dataTaskPublisher(for: url)
-                    .assertNoFailure()
                     .map { $0.data }
-                    .eraseToAnyPublisher()
-            }.flatMap { data in
-                return Publishers.Just(data)
                     .decode(type: SearchResponse.self, decoder: self.decoder)
                     .map { $0.items }
                     .catch { error -> Publishers.Just<[Repo]> in
                         print("Decoding failed with error: \(error)")
                         return Publishers.Just([])
-                }
+                    }
             }.assign(to: \.repos, on: self)
     }
 }
