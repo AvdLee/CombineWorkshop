@@ -30,6 +30,7 @@ final class StepThreeViewController: UIViewController {
     private var validationSubscriber: AnyCancellable?
     private var usernameTextFieldColorSubscriber: AnyCancellable?
     private var passwordTextFieldColorSubscriber: AnyCancellable?
+    private var passwordAgainTextFieldColorSubscriber: AnyCancellable?
 
     @IBOutlet private weak var usernameTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
@@ -80,11 +81,10 @@ final class StepThreeViewController: UIViewController {
             .receive(on: RunLoop.main)
             .assign(to: \.isEnabled, on: nextButton)
 
-        usernameTextFieldColorSubscriber = validatedUsername.map({ (username) -> UIColor in
-                return username?.isEmpty == false ? .green : .red
-            })
-            .map { $0.withAlphaComponent(0.2) }
-            .assign(to: \.backgroundColor, on: usernameTextField)
+        usernameTextFieldColorSubscriber = validatedUsername.assignValidationColor(to: usernameTextField)
+        passwordTextFieldColorSubscriber = validatedPassword.assignValidationColor(to: passwordTextField)
+        passwordAgainTextFieldColorSubscriber = validatedPassword.assignValidationColor(to: passwordConfirmTextField)
+
     }
 
     private func usernameAvailable(_ username: String, completion: (_ available: Bool) -> Void) {
@@ -110,5 +110,15 @@ extension StepThreeViewController: WorkshopStepContaining {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         didFinish(.step3)
+    }
+}
+
+extension AnyPublisher where Output == String?, Failure == Never {
+    func assignValidationColor(to textField: UITextField) -> AnyCancellable {
+        return map({ (value) -> UIColor in
+                return value?.isEmpty == false ? .green : .red
+            })
+            .map { $0.withAlphaComponent(0.2) }
+            .assign(to: \.backgroundColor, on: textField)
     }
 }
