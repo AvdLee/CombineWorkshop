@@ -24,7 +24,7 @@ import Combine
 final class StepFourViewController: UITableViewController {
 
     private var searchSubscriber: AnyCancellable?
-    private var repositoriesSubscriber: AnyCancellable?
+    private var repositoriesSubscriberCancellable: AnyCancellable?
 
     private let decoder = JSONDecoder()
 
@@ -37,11 +37,13 @@ final class StepFourViewController: UITableViewController {
         setupSearchController()
         setupSearchSubscriber()
 
-        _ = $repos
+        let repositoriesSubscriber = $repos
             .receive(on: DispatchQueue.main)
             .sink { (repos) in
                 self.tableView.reloadData()
-        }
+            }
+        repositoriesSubscriberCancellable = AnyCancellable(repositoriesSubscriber)
+
     }
 
     private func githubAPISearchURL(for query: String) -> URL {

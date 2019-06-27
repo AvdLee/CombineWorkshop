@@ -24,7 +24,7 @@ import Combine
 final class StepFourViewController: UITableViewController {
 
     private var searchSubscriber: AnyCancellable?
-    private var repositoriesSubscriber: AnyCancellable?
+    private var repositoriesSubscriberCancellable: AnyCancellable?
 
     private let decoder = JSONDecoder()
 
