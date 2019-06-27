@@ -15,6 +15,7 @@ import Combine
 
  Validation rules are as followed:
  - Username should not exist yet in the `registeredUsernames` array
+ - Username should be 4 characters or more
  - Password should be 8 characters or more
  - Password inputs should match
  - Password should not exist in the `weakPasswords` array
@@ -47,6 +48,7 @@ final class StepThreeViewController: UIViewController {
     var validatedUsername: AnyPublisher<String?, Never> {
         fatalError("This needs to be implemented")
         // Username should not exist yet in the `registeredUsernames` array
+        // Username should be 4 characters or more
     }
 
     var validatedCredentials: AnyPublisher<(String, String)?, Never> {

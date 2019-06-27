@@ -15,6 +15,7 @@ import Combine
 
  Validation rules are as followed:
  - Username should not exist yet in the `registeredUsernames` array
+ - Username should be 4 characters or more
  - Password should be 8 characters or more
  - Password inputs should match
  - Password should not exist in the `weakPasswords` array
@@ -27,6 +28,8 @@ final class StepThreeViewController: UIViewController {
 
     @IBOutlet private weak var nextButton: UIButton!
     private var validationSubscriber: AnyCancellable?
+    private var usernameTextFieldColorSubscriber: AnyCancellable?
+    private var passwordTextFieldColorSubscriber: AnyCancellable?
 
     @IBOutlet private weak var usernameTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
@@ -54,6 +57,10 @@ final class StepThreeViewController: UIViewController {
                     }
                 }
             }
+            .map({ username -> String? in
+                guard let username = username else { return nil }
+                return username.count >= 4 ? username : nil
+            })
             .eraseToAnyPublisher()
     }
 
@@ -68,10 +75,16 @@ final class StepThreeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.validationSubscriber = self.validatedCredentials
+        validationSubscriber = validatedCredentials
             .map { $0 != nil }
             .receive(on: RunLoop.main)
             .assign(to: \.isEnabled, on: nextButton)
+
+        usernameTextFieldColorSubscriber = validatedUsername.map({ (username) -> UIColor in
+                return username?.isEmpty == false ? .green : .red
+            })
+            .map { $0.withAlphaComponent(0.2) }
+            .assign(to: \.backgroundColor, on: usernameTextField)
     }
 
     private func usernameAvailable(_ username: String, completion: (_ available: Bool) -> Void) {
