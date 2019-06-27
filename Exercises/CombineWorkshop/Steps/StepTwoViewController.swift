@@ -29,15 +29,24 @@ final class StepTwoViewController: UIViewController {
     }
 
     @IBAction func switchedOne(_ sender: UISwitch) {
-        switchOneValue = sender.isOn
+        let switchValue = sender.isOn
+        DispatchQueue.global().async {
+            self.switchOneValue = switchValue
+        }
     }
 
     @IBAction func switchedTwo(_ sender: UISwitch) {
-        switchTwoValue = sender.isOn
+        let switchValue = sender.isOn
+        DispatchQueue.global().async {
+            self.switchTwoValue = switchValue
+        }
     }
 
     @IBAction func switchedThree(_ sender: UISwitch) {
-        switchThreeValue = sender.isOn
+        let switchValue = sender.isOn
+        DispatchQueue.global().async {
+            self.switchThreeValue = switchValue
+        }
     }
 }
 

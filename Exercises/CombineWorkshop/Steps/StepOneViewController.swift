@@ -27,7 +27,10 @@ final class StepOneViewController: UIViewController {
     }
 
     @IBAction func didSwitch(_ sender: UISwitch) {
-        buttonSwitchValue = sender.isOn
+        let switchValue = sender.isOn
+        DispatchQueue.global().async {
+            self.buttonSwitchValue = switchValue
+        }
     }
 }
 
