@@ -27,6 +27,7 @@ final class StepFourViewController: UITableViewController {
     private var repositoriesSubscriberCancellable: AnyCancellable?
 
     private let decoder = JSONDecoder()
+    private let activityIndicator = UIActivityIndicatorView(style: .medium)
 
     @Published private var repos: [Repo] = []
     @Published private var searchQuery: String = ""
@@ -62,6 +63,19 @@ final class StepFourViewController: UITableViewController {
             }
             .flatMap { url in
                 return URLSession.shared.dataTaskPublisher(for: url)
+                    .handleEvents(receiveSubscription: { _ in
+                        DispatchQueue.main.async {
+                            self.activityIndicator.startAnimating()
+                        }
+                    }, receiveCompletion: { _ in
+                        DispatchQueue.main.async {
+                            self.activityIndicator.stopAnimating()
+                        }
+                    }, receiveCancel: {
+                        DispatchQueue.main.async {
+                            self.activityIndicator.stopAnimating()
+                        }
+                    })
                     .map { $0.data }
                     .decode(type: SearchResponse.self, decoder: self.decoder)
                     .map { $0.items }
@@ -75,9 +89,12 @@ final class StepFourViewController: UITableViewController {
 
 extension StepFourViewController {
     private func setupSearchController() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: activityIndicator)
+
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
 
         let searchTextField: UITextField? = searchController.searchBar.value(forKey: "searchField") as? UITextField
         searchTextField?.attributedPlaceholder = NSAttributedString(string: "Search for repository", attributes: [.foregroundColor: UIColor.white])

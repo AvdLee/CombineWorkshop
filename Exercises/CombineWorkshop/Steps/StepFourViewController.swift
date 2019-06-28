@@ -27,6 +27,7 @@ final class StepFourViewController: UITableViewController {
     private var repositoriesSubscriberCancellable: AnyCancellable?
 
     private let decoder = JSONDecoder()
+    private let activityIndicator = UIActivityIndicatorView(style: .medium)
 
     @Published private var repos: [Repo] = []
     @Published private var searchQuery: String = ""
@@ -61,10 +62,13 @@ final class StepFourViewController: UITableViewController {
 
 extension StepFourViewController {
     private func setupSearchController() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: activityIndicator)
+
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-
+        searchController.hidesNavigationBarDuringPresentation = false
+        
         let searchTextField: UITextField? = searchController.searchBar.value(forKey: "searchField") as? UITextField
         searchTextField?.attributedPlaceholder = NSAttributedString(string: "Search for repository", attributes: [.foregroundColor: UIColor.white])
         searchTextField?.textColor = .white
