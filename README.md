@@ -18,7 +18,7 @@ A workshop to get you started with the Apple Combine framework.
 - Step 4: Set `UIApplication.shared.isNetworkActivityIndicatorVisible` to `true` when the request is running
 
 ## Available Combine operators
-![](Assets/combine_operators.png)
+![](Assets/combineoperators.png)
 
 # Useful resources
 
