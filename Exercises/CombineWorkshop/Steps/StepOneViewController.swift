@@ -11,7 +11,7 @@ import Combine
 
 /*
  STEP 1:
- Link the nextButton.isEnabled to the buttonSwitch.isOn.
+ Link the nextButton.isEnabled to the buttonSwitch isOn value using `buttonSwitchValue`.
  */
 
 final class StepOneViewController: UIViewController {
