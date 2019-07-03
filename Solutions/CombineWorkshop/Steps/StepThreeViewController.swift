@@ -41,7 +41,8 @@ final class StepThreeViewController: UIViewController {
     @Published var passwordAgain: String = ""
 
     var validatedPassword: AnyPublisher<String?, Never> {
-        return Publishers.CombineLatest($password, $passwordAgain) { password, passwordAgain -> String? in
+        return Publishers.CombineLatest($password, $passwordAgain)
+            .map { password, passwordAgain -> String? in
                 guard password == passwordAgain, password.count >= 8 else { return nil }
                 return password
             }
@@ -52,7 +53,7 @@ final class StepThreeViewController: UIViewController {
     var validatedUsername: AnyPublisher<String?, Never> {
         return $username
             .flatMap { username in
-                return Publishers.Future { promise in
+                return Future { promise in
                     self.usernameAvailable(username) { available in
                         promise(.success(available ? username : nil))
                     }
@@ -66,7 +67,8 @@ final class StepThreeViewController: UIViewController {
     }
 
     var validatedCredentials: AnyPublisher<(String, String)?, Never> {
-        return Publishers.CombineLatest(validatedUsername, validatedPassword) { username, password -> (String, String)? in
+        return Publishers.CombineLatest(validatedUsername, validatedPassword)
+            .map { username, password -> (String, String)? in
                 guard let uname = username, let pwd = password else { return nil }
                 return (uname, pwd)
             }

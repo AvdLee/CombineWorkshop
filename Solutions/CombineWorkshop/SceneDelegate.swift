@@ -22,7 +22,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let window = (scene as? UIWindowScene) else { return }
 
         let navigationController = UINavigationController(rootViewController: StepOneViewController.initFromStoryboard())
 
@@ -31,11 +31,11 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 navigationController.pushViewController(step.viewController!.initFromStoryboard(), animated: false)
             }
         }
-    
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = navigationController
-        window?.tintColor = SwiftIslandColor.red
-        window?.makeKeyAndVisible()
+
+        self.window = UIWindow(windowScene: window)
+        self.window?.rootViewController = navigationController
+        self.window?.tintColor = SwiftIslandColor.red
+        self.window?.makeKeyAndVisible()
 
         navigationController.navigationBar.barTintColor = SwiftIslandColor.yellow
         navigationController.navigationBar.tintColor = .black
