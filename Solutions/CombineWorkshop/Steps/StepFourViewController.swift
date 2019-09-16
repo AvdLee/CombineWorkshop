@@ -79,9 +79,9 @@ final class StepFourViewController: UITableViewController {
                     .map { $0.data }
                     .decode(type: SearchResponse.self, decoder: self.decoder)
                     .map { $0.items }
-                    .catch { error -> Publishers.Just<[Repo]> in
+                    .catch { error -> Just<[Repo]> in
                         print("Decoding failed with error: \(error)")
-                        return Publishers.Just([])
+                        return Just([])
                     }
             }.assign(to: \.repos, on: self)
     }

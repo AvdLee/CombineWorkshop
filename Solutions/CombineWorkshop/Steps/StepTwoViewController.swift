@@ -27,7 +27,8 @@ final class StepTwoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        switchesSubscriber = Publishers.CombineLatest3($switchOneValue, $switchTwoValue, $switchThreeValue, transform: { $0 && $1 && $2 })
+        switchesSubscriber = Publishers.CombineLatest3($switchOneValue, $switchTwoValue, $switchThreeValue)
+            .map { $0 && $1 && $2 }
             .receive(on: DispatchQueue.main)
             .assign(to: \.isEnabled, on: nextButton)
     }
