@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct SwiftIslandColor {
+struct CombineWorkshopColor {
     static let red = UIColor(named: "red")
     static let yellow = UIColor(named: "yellow")
     static let orange = UIColor(named: "orange")
@@ -34,13 +34,13 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
         self.window = UIWindow(windowScene: window)
         self.window?.rootViewController = navigationController
-        self.window?.tintColor = SwiftIslandColor.red
+        self.window?.tintColor = CombineWorkshopColor.red
         self.window?.makeKeyAndVisible()
 
-        navigationController.navigationBar.barTintColor = SwiftIslandColor.yellow
+        navigationController.navigationBar.barTintColor = CombineWorkshopColor.yellow
         navigationController.navigationBar.tintColor = .black
         navigationController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
-        UISwitch.appearance().onTintColor = SwiftIslandColor.yellow
+        UISwitch.appearance().onTintColor = CombineWorkshopColor.yellow
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
