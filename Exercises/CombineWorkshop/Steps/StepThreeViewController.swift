@@ -37,7 +37,7 @@ final class StepThreeViewController: UIViewController {
     var password: String = ""
     var passwordAgain: String = ""
 
-    var validatedPassword: AnyPublisher<String?, Never> {
+    var validatedPassword: AnyPublisher<Bool, Never> {
         fatalError("This needs to be implemented")
         // Password and password again should match
         // Password should be 8 characters or more
@@ -45,13 +45,13 @@ final class StepThreeViewController: UIViewController {
         // Use `.eraseToAnyPublisher()` in the end
     }
 
-    var validatedUsername: AnyPublisher<String?, Never> {
+    var validatedUsername: AnyPublisher<Bool, Never> {
         fatalError("This needs to be implemented")
         // Username should not exist yet in the `registeredUsernames` array
         // Username should be 4 characters or more
     }
 
-    var validatedCredentials: AnyPublisher<(String, String)?, Never> {
+    var validatedCredentials: AnyPublisher<Bool, Never> {
         fatalError("This needs to be implemented")
         // Bring the validation of password and username together
     }

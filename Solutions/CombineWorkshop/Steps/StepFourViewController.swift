@@ -38,13 +38,11 @@ final class StepFourViewController: UITableViewController {
         setupSearchController()
         setupSearchSubscriber()
 
-        let repositoriesSubscriber = $repos
+        repositoriesSubscriberCancellable = $repos
             .receive(on: DispatchQueue.main)
             .sink { (repos) in
                 self.tableView.reloadData()
             }
-        repositoriesSubscriberCancellable = AnyCancellable(repositoriesSubscriber)
-
     }
 
     private func githubAPISearchURL(for query: String) -> URL {

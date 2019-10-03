@@ -40,17 +40,17 @@ final class StepThreeViewController: UIViewController {
     @Published var password: String = ""
     @Published var passwordAgain: String = ""
 
-    var validatedPassword: AnyPublisher<String?, Never> {
+    var validatedPassword: AnyPublisher<Bool, Never> {
         return Publishers.CombineLatest($password, $passwordAgain)
-            .map { password, passwordAgain -> String? in
-                guard password == passwordAgain, password.count >= 8 else { return nil }
-                return password
+            .map { password, passwordAgain -> Bool in
+                guard password == passwordAgain, password.count >= 8 else { return false }
+                guard !self.weakPasswords.contains(password) else { return false }
+                return true
             }
-            .map { self.weakPasswords.contains($0 ?? "") ? nil : $0 }
             .eraseToAnyPublisher()
     }
 
-    var validatedUsername: AnyPublisher<String?, Never> {
+    var validatedUsername: AnyPublisher<Bool, Never> {
         return $username
             .flatMap { username in
                 return Future { promise in
@@ -59,18 +59,17 @@ final class StepThreeViewController: UIViewController {
                     }
                 }
             }
-            .map({ username -> String? in
-                guard let username = username else { return nil }
-                return username.count >= 4 ? username : nil
+            .map({ username -> Bool in
+                guard let username = username else { return false }
+                return username.count >= 4
             })
             .eraseToAnyPublisher()
     }
 
-    var validatedCredentials: AnyPublisher<(String, String)?, Never> {
+    var validatedCredentials: AnyPublisher<Bool, Never> {
         return Publishers.CombineLatest(validatedUsername, validatedPassword)
-            .map { username, password -> (String, String)? in
-                guard let uname = username, let pwd = password else { return nil }
-                return (uname, pwd)
+            .map { username, password -> Bool in
+                return username && password
             }
             .eraseToAnyPublisher()
     }
@@ -79,7 +78,6 @@ final class StepThreeViewController: UIViewController {
         super.viewDidLoad()
 
         validationSubscriber = validatedCredentials
-            .map { $0 != nil }
             .receive(on: RunLoop.main)
             .assign(to: \.isEnabled, on: nextButton)
 
@@ -115,10 +113,10 @@ extension StepThreeViewController: WorkshopStepContaining {
     }
 }
 
-extension AnyPublisher where Output == String?, Failure == Never {
+extension AnyPublisher where Output == Bool, Failure == Never {
     func assignValidationColor(to textField: UITextField) -> AnyCancellable {
         return map({ (value) -> UIColor in
-                return value?.isEmpty == false ? .green : .red
+                return value ? .green : .red
             })
             .map { $0.withAlphaComponent(0.2) }
             .assign(to: \.backgroundColor, on: textField)

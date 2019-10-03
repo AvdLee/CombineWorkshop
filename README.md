@@ -14,6 +14,7 @@ A workshop to get you started with the Apple Combine framework.
 - Implement a search view to search for Swift repositories on Github
 
 ### Extra exercises if you're really fast!
+- Step 3: Use the asynchronous `usernameAvailable()` method to validate the username
 - Step 3: Change the `UITextField` background color based on valid input to `.red` or `.green`
 - Step 4: Set `UIApplication.shared.isNetworkActivityIndicatorVisible` to `true` when the request is running
 

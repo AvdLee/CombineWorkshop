@@ -39,7 +39,7 @@ final class StepFourViewController: UITableViewController {
         setupSearchSubscriber()
 
         // Step 1: Make sure that the table view reloads its data when $repos changes
-        _ = $repos
+        // repositoriesSubscriberCancellable = $repos
     }
 
     private func githubAPISearchURL(for query: String) -> URL {
@@ -53,8 +53,9 @@ final class StepFourViewController: UITableViewController {
             - Only start searching when there's more than 2 characters of input
             - Debounce for at least 0.3 seconds to not trigger unneeded requests
             - Remove any duplicate inputs which might happen because of the debounce
-            - Just show an empty list when an error occurs
+            - Map to a `URLSessionTaskPublisher` using the `githubAPISearchURL(for:)` method
             - Decode to `SearchResponse` to get the array of `Repo` instances
+            - Just show an empty list when an error occurs
          */
 //        searchSubscriber = $searchQuery
     }
